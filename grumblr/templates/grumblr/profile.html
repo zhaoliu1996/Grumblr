@@ -1,0 +1,145 @@
+<!-- 
+
+Andrew ID: zhaol1
+Email: zhaol1@andrew.cmu.edu
+
+citing resourse from following sites: 
+
+http://getbootstrap.com/docs/4.0/examples/blog/
+
+
+
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="profile" content="">
+    <meta name="zhao" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Profile</title>
+
+
+    <!-- Bootstrap core CSS -->
+    {% load staticfiles %}
+    <link href="{% static 'grumblr/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    {% load staticfiles %}
+    <link href="{% static 'grumblr/css/blog.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="blog-masthead">
+      <div class="container">
+        <nav class="nav">
+          <a class="nav-link" href="{% url 'global_stream' %}">Post</a>
+          <a class="nav-link" href="#">Followers</a>
+          <a class="nav-link" href="{% url 'following_stream' %}">Following</a>
+          <a class="nav-link" href="#">Explore</a>
+          <a class="nav-link active" href="{% url 'profile' request.user.id %}">Profile</a>
+          <a class="nav-link" href="{% url 'edit' %}">Edit Profile</a>
+          <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="blog-header">
+      <div class="container">
+        
+        <p class="lead blog-description">Background picture implement later.</p>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-sm-3 offset-sm-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            
+            <img src="{% url 'avatar' thisuser.id %}" height="64" width="64" align="left"></img>
+            <h4>{{ thisuser.username }}</h4>
+            <p>{{profile.first_name}} {{profile.last_name}} </p>
+            {% if not me %}
+            {% if following %}
+              <a href="{% url 'remove_following' profile.owner.id %}">unfollow</a>
+            {% else %}
+              <a href="{% url 'add_following' profile.owner.id %}">follow</a>
+            {% endif %}   
+            {% endif %}
+            <p> Age: {{profile.age}} </p>
+            <p> Bio: {{profile.bio}} </p>
+          </div>
+          <div class="sidebar-module">
+            <h4>Explore</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">Tom Cruise</a></li>
+              <li><a href="#">Jackie Chen</a></li>
+              <li><a href="#">Bill Gates</a></li>
+            </ol>
+          </div>
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+
+
+        <div class="col-sm-9 blog-main">
+          {% for post in post %}
+          <div class="blog-post">
+            <img src="{% url 'avatar' post.user.id %}" height="32" width="32" align="left"></img>
+            <p class="blog-post-meta"><a href="#">{{ post.user.username }}</a>{{ post.time }} </p>
+
+            <p>{{ post.content }}</p>
+          </div><!-- /.blog-post -->
+          <hr>
+          {% endfor %}
+        </div>
+
+          <nav class="blog-pagination">
+            <a class="btn btn-outline-primary" href="#">Older</a>
+            <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+          </nav>
+
+        </div><!-- /.blog-main -->
+
+        
+      </div><!-- /.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="blog-footer">
+      <p>Blog template built for <a href="https://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      <p>
+        <a href="#">Back to top</a>
+      </p>
+    </footer>
+
+    {% load static %}
+    <script src="{% static 'grumblr/js/jquery-3.1.1.min.js' %}" type="text/javascript"></script>
+    {% load static %}
+    <script src="{% static 'grumblr/js/grumblr.js' %}" type="text/javascript"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+

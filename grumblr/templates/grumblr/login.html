@@ -1,0 +1,93 @@
+<!-- 
+
+Andrew ID: zhaol1
+Email: zhaol1@andrew.cmu.edu
+
+citing resourse from following sites: 
+
+https://v4-alpha.getbootstrap.com/examples/cover/
+
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="grumblr" content="">
+    <meta name="Zhao" content="">
+
+    <title>Sign in Grumblr</title>
+
+    <!-- Bootstrap core CSS -->
+    {% load staticfiles %}
+    <link href="{% static '/grumblr/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    {% load staticfiles %}
+    <link href="{% static '/grumblr/css/cover.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Grumblr</h3>
+            
+              <form method="post" action="{% url 'main' %}" class="navbar-form pull-right">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Login" />
+                   
+              </form>
+
+             
+              <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+
+
+
+              
+            </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading">Share your thought.</h1>
+            <p class="lead">Grumblr is a simple nano-blog for people sharing thought and experience.</p>
+            <p class="lead">
+              <a href="/grumblr/register" class="btn btn-lg btn-secondary">Register Now</a>
+            </p>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+

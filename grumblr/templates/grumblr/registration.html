@@ -1,0 +1,75 @@
+<!-- 
+
+Andrew ID: zhaol1
+Email: zhaol1@andrew.cmu.edu
+
+citing resourse from following sites: 
+
+https://v4-alpha.getbootstrap.com/examples/cover/
+
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="registration" content="">
+    <meta name="zhao" content="">
+    
+
+    <title>Zhao's Glumblr Site</title>
+
+
+    <!-- Bootstrap core CSS -->
+    {% load staticfiles %}
+    <link href="{% static 'grumblr/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    {% load staticfiles %}
+    <link href="{% static 'grumblr/css/registration.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Grumblr</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+      
+    
+    <div class="container">
+
+      
+        <h1>Register Glumblr Now!</h1>
+        
+        <form action="{% url 'register' %}" method="post">
+          {% csrf_token %}
+          {{ form }}
+
+          <input type="submit" value="Submit">
+
+        </form>
+      
+
+    </div>
+
+    
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../js/vendor/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
+

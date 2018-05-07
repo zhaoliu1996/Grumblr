@@ -1,0 +1,21 @@
+body {
+  padding-top: 5rem;
+}
+
+.container {
+        width: 500px;
+        clear: both;
+    }
+    
+.container input {
+    width: 100%;
+    clear: both;
+}
+
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;
+}
